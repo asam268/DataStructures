@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// TODO: for Asa, update this test to work with a dynamic stack
 class MyStackTest {
 
     private myStack a;

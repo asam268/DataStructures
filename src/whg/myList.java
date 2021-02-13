@@ -5,6 +5,8 @@ public class myList {
      * Get: get entry at passed index
      * Size: returns size of list
      * Removes: removes element at passed index
+     *
+     * TODO: update this class to the newest version
      */
     private String[] array1;
 

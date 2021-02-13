@@ -3,6 +3,8 @@
  *Pop
  *size
  *peek
+ *
+ * TODO: update this class to the newest version
  */
 package whg;
 
