@@ -5,21 +5,20 @@ public class myList {
      * Get: get entry at passed index
      * Size: returns size of list
      * Removes: removes element at passed index
-     *
-     * TODO: update this class to the newest version
      */
     private String[] array1;
 
     //constructor
     public myList() {
-        this.array1 = new String[1];
+        this.array1 = new String[0];
     }
 
 
     //public methods
     public void append(String newString) {
-        array1[array1.length - 1] = newString;
         increaseArrayLimit();
+        array1[array1.length - 1] = newString;
+
     }
 
     public String get(int index) {
@@ -27,14 +26,13 @@ public class myList {
     }
 
     public int size() {
-        int sizeOfList = array1.length - 1;
+        int sizeOfList = array1.length;
         return sizeOfList;
     }
 
     public void remove(int index) {
         String[] newArray = new String[array1.length - 1];
 
-        array1[index] = null;
 
         for (int i = 0; i < index; i++)
             newArray[i] = array1[i];
@@ -45,7 +43,7 @@ public class myList {
         array1 = newArray;
     }
 
-    public void appendToBack(String newString) {
+    public void appendToFront(String newString) {
         String[] newArray = new String[array1.length + 1];
         newArray[0] = null;
         for (int i = 0; i <= array1.length - 1; i++)

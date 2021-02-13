@@ -1,45 +1,65 @@
-/*LIFO Stack
+package whg;/*LIFO Stack
  *Push
  *Pop
  *size
  *peek
- *
- * TODO: update this class to the newest version
  */
-package whg;
 
 public class myStack {
     //fields
-    private myList list1 = new myList();
+    private String[] array1;
 
 
     //constructor
     public myStack() {
-
+        this.array1 = new String[0];
     }
 
 
     //public methods
     public void push(String newString) {
-        list1.append(newString);
+        increaseArrayLengthByOne();
+
+        array1[array1.length - 1] = newString;
     }
 
-    public void pop() {
-        String topString = list1.get(list1.size() - 1);
-        list1.remove(list1.size() - 1);
-    }
+    public String pop() {
+        String topString = "";
 
-    public String peek() {
-        String topString = list1.get(list1.size() - 1);
+        switch (array1.length) {
+            case 0 -> topString = null;
+            default -> topString = array1[array1.length - 1];
+        }
+        decreaseArrayLengthByOne();
         return topString;
     }
 
-    public int size() {
-        return list1.size();
+    public String peek() {
+        String topString = array1[array1.length - 1];
+        return topString;
     }
 
     public boolean isEmpty() {
-        return true;
+        return array1.length == 0;
     }
     //private methods
+
+    private void increaseArrayLengthByOne() {
+        String[] newArray = new String[array1.length + 1];
+
+        for (int i = 0; i <= array1.length - 1; i++)
+            newArray[i] = array1[i];
+
+        newArray[newArray.length - 1] = null;
+
+        array1 = newArray;
+    }
+
+    private void decreaseArrayLengthByOne() {
+        String[] newArray = new String[array1.length - 1];
+
+        for (int i = 0; i <= newArray.length - 1; i++)
+            newArray[i] = array1[i];
+        array1 = newArray;
+    }
 }

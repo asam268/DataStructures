@@ -1,43 +1,41 @@
-/*
+package whg;/*
  *publish
  *pull
  *size
- *
- * TODO: update this class to the newest version
  */
-package whg;
 
 public class myQueue {
     //fields
-    private myList list1 = new myList();
+    private String[] array1;
 
 
     //constructor
     public myQueue() {
+        this.array1 = new String[0];
     }
 
     //public methods
     public void publish(String newString) {
-        list1.appendToBack(newString);
+        String[] newArray = new String[array1.length + 1];
+
+        for (int i = 0; i <= array1.length - 1; i++)
+            newArray[i + 1] = array1[i];
+        newArray[0] = newString;
+        array1 = newArray;
     }
 
-    public void pull() {
-        list1.remove(list1.size() - 1);
+    public String pull() {
+        String topString = array1[array1.length - 1];
+
+        String[] newArray = new String[array1.length - 1];
+
+        for (int i = 0; i <= newArray.length - 1; i++)
+            newArray[i] = array1[i];
+        array1 = newArray;
+        return topString;
     }
 
     public int size() {
-        return list1.size();
+        return array1.length;
     }
-
-    public String peekFront() {
-        return list1.get(list1.size() - 1);
-    }
-
-    public String peekBack() {
-        return list1.get(0);
-    }
-
-    //private methods
-
-
 }
