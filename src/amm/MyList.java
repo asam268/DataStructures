@@ -9,7 +9,7 @@ public class MyList {
 
     private String[] list;  // Internal String array
 
-    public MyList() {
+    MyList() {
         this.list = new String[0];
     }
 
@@ -18,7 +18,7 @@ public class MyList {
      *
      * @param value     to be appended to the end of the array
      */
-    public void append(String value) {
+void append(String value) {
         if (this.list.length > 0) {
             String[] temp = this.list;
             this.list = new String[temp.length + 1];
@@ -37,16 +37,16 @@ public class MyList {
      * @param idx   position index of the String
      * @return      String
      */
-    public String get(int idx) {
+    String get(int idx) {
         return this.list[idx];
     }
 
     /**
      * Removes the String at the given index and decreases amm.MyList's size
      *
-     * @param idx
+     * @param idx index of the String to remove
      */
-    public void remove(int idx) {
+    void remove(int idx) {
         String[] temp = this.list;
         this.list = new String[temp.length - 1];
         if (idx > 0) System.arraycopy(temp, 0, list, 0, idx);
@@ -58,7 +58,7 @@ public class MyList {
      *
      * @return int
      */
-    public int size() {
+    int size() {
         return this.list.length;
     }
 

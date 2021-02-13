@@ -3,7 +3,7 @@ package amm;
 /**
  * @author Asa Marshall
  *
- * MyDynamicStack is a resizable stack of Strings
+ * amm.MyDynamicStack is a resizable stack of Strings
  */
 class MyDynamicStack {
 

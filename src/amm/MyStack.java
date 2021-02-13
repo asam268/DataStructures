@@ -1,7 +1,7 @@
 package amm;
 
 /**
- * MyStack is a statically sized stack of Strings
+ * amm.MyStack is a statically sized stack of Strings
  */
 class MyStack {
 
