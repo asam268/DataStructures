@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * This class tests the amm.MyList object
+ */
 class MyListTest {
 
     private MyList a;
