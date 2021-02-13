@@ -1,5 +1,3 @@
-src/amm/MyLinkedList
-src/amm/MyQueue
 .idea
 # Project exclude paths
 /out/
