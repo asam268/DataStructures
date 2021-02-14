@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// TODO: for Asa, update this test to work with a dynamic stack
 class MyStackTest {
 
     private myStack a;
@@ -50,36 +49,39 @@ class MyStackTest {
         assertEquals("a", a.peek());
     }
 
-//    @Test
-//    void pop() {
-//        assertTrue(a.isEmpty());
-//
-//        a.push("a");
-//        a.push("b");
-//        // it pops the top element
-//        assertEquals("b", a.pop());
-//
-//        // it decrements the top index correctly
-//        assertEquals("a", a.pop());
-//
-//        // it returns 0 if the stack is empty
-//        assertTrue(a.isEmpty());
-//        assertNull(a.pop());
-//
-//        // it does not over decrement the top index
-//        assertNull(a.pop());
-//        a.push("c");
-//        assertEquals("c", a.pop());
-//    }
+    @Test
+    void pop() {
+        assertTrue(a.isEmpty());
 
-//    @Test
-//    void push() {
-//        // it returns true after pushing a value
-//        assertTrue(a.push("a"));
-//
-//        // it returns false when the stack has reached capacity
-//        for (int i = 0; i < 999; i++)
-//            a.push("a");
-//        assertFalse(a.push("b"));
-//    }
+        a.push("a");
+        a.push("b");
+        // it pops the top element
+        assertEquals("b", a.pop());
+
+        // it decrements the top index correctly
+        assertEquals("a", a.pop());
+
+        // it returns 0 if the stack is empty
+        assertTrue(a.isEmpty());
+        assertNull(a.pop());
+
+        // it does not over decrement the top index
+        assertNull(a.pop());
+        a.push("c");
+        assertEquals("c", a.pop());
+    }
+
+    @Test
+    void push() {
+        a.push("a");
+        a.push("b");
+        a.push("c");
+
+        assertEquals("c", a.pop());
+        assertEquals("b", a.pop());
+        assertEquals("a", a.pop());
+
+        a.push("d");
+        assertEquals("d", a.peek());
+    }
 }
