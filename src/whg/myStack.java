@@ -24,18 +24,19 @@ public class myStack { //TODO: adjust peek and pop methods to pass tests
     }
 
     public String pop() {
-        String topString = "";
-
-        switch (array1.length) {
-            case 0 -> topString = null;
-            default -> topString = array1[array1.length - 1];
+        String topString = null;
+        if (array1.length > 0) {
+            topString = array1[array1.length - 1];
+            decreaseArrayLengthByOne();
         }
-        decreaseArrayLengthByOne();
         return topString;
     }
 
     public String peek() {
-        String topString = array1[array1.length - 1];
+        String topString = null;
+        if (array1.length > 0) {
+            topString = array1[array1.length - 1];
+        }
         return topString;
     }
 
