@@ -2,14 +2,15 @@ package amm;
 
 class MyLinkedList {
 
-    private Node[] list;
+    private Node head;
 
-    private static class Node {
+    static class Node {
         private String value;
         private Node next;
 
         Node(String value) {
-            this.value = "";
+            this.value = value;
+            this.next = null;
         }
 
         public String getValue() {
@@ -21,7 +22,11 @@ class MyLinkedList {
         }
 
         public Node getNext() {
-            return next;
+            try {
+                return this.next;
+            } catch (NullPointerException e) {
+                return null;
+            }
         }
 
         public void setNext(Node next) {
@@ -30,15 +35,38 @@ class MyLinkedList {
     }
 
     MyLinkedList() {
-        this.list = new Node[0];
+        head = null;
+    }
+    
+    MyLinkedList deleteByKey(MyLinkedList list, String value) { // FIXME: 2/14/2021 
+        Node node = list.getHead();
+        if (node.getNext() != null && node.getValue().equals(value)) {
+            
+        }
+        return null;
     }
 
-    void insert(int idx, String value) {
-        Node[] temp = list;
-        list = new Node[temp.length + 1];
-        System.arraycopy(temp, 0, list, 0, temp.length);
+    MyLinkedList insert(MyLinkedList list, String value) {
+        Node node = new Node(value);
+        node.setNext(null);
+        if (list.getHead() == null)
+            list.setHead(node);
+        else {
+            Node last = list.getHead();
+            while (last.getNext() != null) {
+                last = last.getNext();
+            }
+            last.setNext(node);
+        }
+        return list;
+    }
 
-        list[list.length - 1] = new Node("value");
+    Node getHead() {
+        return this.head;
+    }
+
+    private void setHead(Node head) {
+        this.head = head;
     }
 
 }
