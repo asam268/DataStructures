@@ -1,10 +1,10 @@
 package amm;
 
-class MyLinkedList {
+class MyLinkedList implements LinkedList{
 
     private Node head;
 
-    static class Node {
+    static class Node implements LinkedList.Node {
         private String value;
         private Node next;
 
@@ -22,11 +22,7 @@ class MyLinkedList {
         }
 
         public Node getNext() {
-            try {
-                return this.next;
-            } catch (NullPointerException e) {
-                return null;
-            }
+            return this.next;
         }
 
         public void setNext(Node next) {
@@ -38,7 +34,7 @@ class MyLinkedList {
         head = null;
     }
 
-    MyLinkedList deleteAtPosition(MyLinkedList list, int index) {
+    public MyLinkedList deleteAtPosition(MyLinkedList list, int index) {
         Node node = list.getHead(), prev = null;
         if (node != null && index == 0) {
             list.setHead(node.getNext());
@@ -57,7 +53,7 @@ class MyLinkedList {
         return list;
     }
     
-    MyLinkedList deleteByKey(MyLinkedList list, String value) { // FIXME: 2/14/2021 
+    public MyLinkedList deleteByKey(MyLinkedList list, String value) {
         Node node = list.getHead();
         Node prev = null;
         if (node != null && node.getValue().equals(value))
@@ -76,7 +72,7 @@ class MyLinkedList {
         return list;
     }
 
-    MyLinkedList insert(MyLinkedList list, String value) {
+    public MyLinkedList insert(MyLinkedList list, String value) {
         Node node = new Node(value);
         node.setNext(null);
         if (list.getHead() == null)
@@ -91,11 +87,11 @@ class MyLinkedList {
         return list;
     }
 
-    Node getHead() {
+    public Node getHead() {
         return this.head;
     }
 
-    void printList(MyLinkedList list) {
+    public void printList(MyLinkedList list) {
         Node node = list.getHead();
 
         System.out.print("{ ");
@@ -106,7 +102,7 @@ class MyLinkedList {
         System.out.print("}");
     }
 
-    private void setHead(Node head) {
+    public void setHead(Node head) {
         this.head = head;
     }
 
