@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-// TODO: create a test for the myQueue object
-
 class myQueueTest {
 
     private myQueue a;
@@ -43,6 +41,8 @@ class myQueueTest {
             a.publish(entry);
         }
         assertEquals("0", a.pull());
+
+        // TODO: it removes the item from the list when pulled
     }
 
     @Test
