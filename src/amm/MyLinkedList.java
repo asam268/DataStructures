@@ -37,6 +37,25 @@ class MyLinkedList {
     MyLinkedList() {
         head = null;
     }
+
+    MyLinkedList deleteAtPosition(MyLinkedList list, int index) {
+        Node node = list.getHead(), prev = null;
+        if (node != null && index == 0) {
+            list.setHead(node.getNext());
+        }
+
+        int i = 0;
+        while (node != null && index != i++) {
+            prev = node;
+            node = node.getNext();
+        }
+
+        if (node != null && prev != null) {
+            prev.setNext(node.getNext());
+        }
+
+        return list;
+    }
     
     MyLinkedList deleteByKey(MyLinkedList list, String value) { // FIXME: 2/14/2021 
         Node node = list.getHead();
@@ -74,6 +93,17 @@ class MyLinkedList {
 
     Node getHead() {
         return this.head;
+    }
+
+    void printList(MyLinkedList list) {
+        Node node = list.getHead();
+
+        System.out.print("{ ");
+        while (node != null) {
+            System.out.print(node.getValue() + " ");
+            node = node.getNext();
+        }
+        System.out.print("}");
     }
 
     private void setHead(Node head) {

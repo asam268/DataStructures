@@ -4,19 +4,83 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyLinkedListTest {
 
     private MyLinkedList a;
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
 
     @BeforeEach
     void setUp() {
         a = new MyLinkedList();
+        System.setOut(new PrintStream(outContent));
     }
 
     @AfterEach
     void tearDown() {
+        System.setOut(originalOut);
+    }
+
+    @Test
+    void deleteAtPosition() {
+        MyLinkedList.Node node;
+
+        // it can delete from a linked list of size 1
+        a = a.insert(a, "a");
+        node = a.getHead();
+        assertEquals("a", node.getValue());
+        a = a.deleteAtPosition(a, 0);
+        node = a.getHead();
+        assertNull(node);
+
+        // it can delete the head from a linked list with multiple values
+        a = a.insert(a, "a");
+        a = a.insert(a, "b");
+        a = a.insert(a, "c");
+        a = a.deleteAtPosition(a, 0);
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("c", node.getValue());
+        node = node.getNext();
+        assertNull(node);
+
+        // it can delete an item from the middle of a linked list
+        a = a.insert(a, "d");
+        a = a.deleteAtPosition(a, 1);
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+        node = node.getNext();
+        assertNull(node);
+
+        // it can delete an item from the end of a linked list
+        a = a.insert(a, "e");
+        a = a.deleteAtPosition(a, 2);
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+        node = node.getNext();
+        assertNull(node);
+
+        // it does not delete anything if there is not value for the given index
+        a = a.insert(a, "f");
+        a = a.deleteAtPosition(a, 4);
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+        node = node.getNext();
+        assertEquals("f", node.getValue());
+        node = node.getNext();
+        assertNull(node);
     }
 
     @Test
@@ -94,14 +158,34 @@ class MyLinkedListTest {
 
     @Test
     void getHead() {
+        // it's head should be null initially
         assertNull(a.getHead());
 
+        // it's head should be the first node
         a = a.insert(a, "a");
         MyLinkedList.Node node = a.getHead();
         assertEquals("a", node.getValue());
 
+        // it's head should not change when adding new values
         a = a.insert(a, "b");
         node = a.getHead();
         assertEquals("a", node.getValue());
+    }
+
+    @Test
+    void printList() {
+        // it can print an empty list
+        a.printList(a);
+        assertEquals("{ }", outContent.toString());
+
+        outContent.reset();
+
+        // it can print a list with multiple values
+        a = a.insert(a, "a");
+        a = a.insert(a, "b");
+        a = a.insert(a, "c");
+
+        a.printList(a);
+        assertEquals("{ a b c }", outContent.toString());
     }
 }
