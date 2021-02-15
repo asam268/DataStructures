@@ -40,10 +40,21 @@ class MyLinkedList {
     
     MyLinkedList deleteByKey(MyLinkedList list, String value) { // FIXME: 2/14/2021 
         Node node = list.getHead();
-        if (node.getNext() != null && node.getValue().equals(value)) {
-            
+        Node prev = null;
+        if (node != null && node.getValue().equals(value))
+            list.head = node.getNext();
+
+
+        while (node != null && !node.getValue().equals(value)) {
+            prev = node;
+            node = node.getNext();
         }
-        return null;
+
+        if (node != null && prev != null) {
+            prev.setNext(node.getNext());
+        }
+
+        return list;
     }
 
     MyLinkedList insert(MyLinkedList list, String value) {

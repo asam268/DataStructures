@@ -20,6 +20,58 @@ class MyLinkedListTest {
     }
 
     @Test
+    void deleteByKey() {
+        MyLinkedList.Node node;
+
+        // it can delete from a linked list of size 1
+        a = a.insert(a, "a");
+        node = a.getHead();
+        assertEquals("a", node.getValue());
+        a = a.deleteByKey(a, "a");
+        assertNull(a.getHead());
+
+        // it can delete the head from a linked list with multiple values
+        a = a.insert(a, "a");
+        a = a.insert(a, "b");
+        a = a.insert(a, "c");
+        node = a.getHead();
+        assertEquals("a", node.getValue());
+        a = a.deleteByKey(a, "a");
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+
+        // it can delete an item from the middle of the linked list
+        a = a.insert(a, "d");
+        a = a.deleteByKey(a, "c");
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+
+        // it can delete an item from the end of the linked list
+        a = a.insert(a, "e");
+        a = a.deleteByKey(a, "e");
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+        node = node.getNext();
+        assertNull(node);
+
+        // it does not delete anything when the key is not found in the list
+        a = a.insert(a, "f");
+        a.deleteByKey(a, "e");
+        node = a.getHead();
+        assertEquals("b", node.getValue());
+        node = node.getNext();
+        assertEquals("d", node.getValue());
+        node = node.getNext();
+        assertEquals("f", node.getValue());
+        node = node.getNext();
+        assertNull(node);
+    }
+
+    @Test
     void insert() {
         MyLinkedList.Node node;
 
@@ -36,10 +88,8 @@ class MyLinkedListTest {
             assertEquals("" + i, node.getValue());
             node = node.getNext();
         }
-
         // it's last 'next' node should be null
-        final MyLinkedList.Node YEET = node;
-        assertThrows(NullPointerException.class, () -> YEET.getNext());
+        assertNull(node);
     }
 
     @Test
