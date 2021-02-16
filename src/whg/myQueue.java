@@ -25,14 +25,18 @@ public class myQueue {
     }
 
     public String pull() {
-        String topString = array1[array1.length - 1];
+        if (array1.length > 0) {
+            String topString = array1[array1.length - 1];
 
-        String[] newArray = new String[array1.length - 1];
+            String[] newArray = new String[array1.length - 1];
 
-        for (int i = 0; i <= newArray.length - 1; i++)
-            newArray[i] = array1[i];
-        array1 = newArray;
-        return topString;
+            for (int i = 0; i <= newArray.length - 1; i++)
+                newArray[i] = array1[i];
+            array1 = newArray;
+
+            return topString;
+        }
+        return null;
     }
 
     public int size() {
