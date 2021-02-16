@@ -5,7 +5,7 @@ package whg;/*LIFO Stack
  *peek
  */
 
-public class myStack { //TODO: adjust peek and pop methods to pass tests
+public class myStack {
     //fields
     private String[] array1;
 
