@@ -12,6 +12,8 @@ public interface DoublyLinkedList {
         void setValue(String value);
     }
     DLL append(DLL list, String value);
+    DLL deleteAtPosition(DLL list, String value);
+    DLL deleteByKey(DLL list, String value);
     DLL.Node getHead();
     DLL insertBefore(DLL list, DLL.Node next, String value);
     DLL insertAfter(DLL list, DLL.Node prev, String value);
