@@ -87,6 +87,10 @@ class MyLinkedListTest {
     void deleteByKey() {
         MyLinkedList.Node node;
 
+        // it won't delete anything out of an empty list
+        a = a.deleteByKey(a, "0");
+        assertNull(a.getHead());
+
         // it can delete from a linked list of size 1
         a = a.insert(a, "a");
         node = a.getHead();
