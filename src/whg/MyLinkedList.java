@@ -84,8 +84,10 @@ public class MyLinkedList implements LinkedList {
 
         if (list.getHead() == null) {
             list.setHead(newNode);
+
         } else {
             Node prev = list.getHead();
+
             while (prev.getNext() != null) {
                 prev = prev.getNext();
             }
