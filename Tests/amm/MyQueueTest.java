@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyQueueTest {     // TODO: update tests to no longer use internal MyQueue array
 
     private MyQueue a;
+
     @BeforeEach
     void setUp() {
         a = new MyQueue(100);

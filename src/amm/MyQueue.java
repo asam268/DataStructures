@@ -29,7 +29,7 @@ public class MyQueue {
     }
 
     public String dequeue() {
-        if(!this.isEmpty()) {
+        if (!this.isEmpty()) {
             String pop = this.array[front];
             System.arraycopy(this.array, 1, this.array, front, --this.size);
             this.array[this.rear--] = null;

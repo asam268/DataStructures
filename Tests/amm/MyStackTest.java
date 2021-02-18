@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyStackTest {
 
     private MyStack a;
+
     @BeforeEach
     void setUp() {
         a = new MyStack();

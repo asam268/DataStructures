@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MyDynamicStackTest {
 
     private MyDynamicStack a;
+
     @BeforeEach
     void setUp() {
         a = new MyDynamicStack();

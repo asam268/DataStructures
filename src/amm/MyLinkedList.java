@@ -1,6 +1,6 @@
 package amm;
 
-class MyLinkedList implements LinkedList{
+class MyLinkedList implements LinkedList {
 
     private Node head;
 
@@ -52,7 +52,7 @@ class MyLinkedList implements LinkedList{
 
         return list;
     }
-    
+
     public MyLinkedList deleteByKey(MyLinkedList list, String value) {
         Node node = list.getHead();
         Node prev = null;

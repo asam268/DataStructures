@@ -72,15 +72,15 @@ public class DLL implements DoublyLinkedList {
     }
 
     @Override
-    public DLL deleteAtPosition(DLL list, int index){
+    public DLL deleteAtPosition(DLL list, int index) {
         if (list.getHead() != null) {
             Node curr = list.getHead();
             Node next = curr.getNext();
             Node prev = null;
-            if(curr.getNext()!= null & index == 0) {
+            if (curr.getNext() != null & index == 0) {
                 list.setHead(next);
                 next.setPrev(null);
-            } else if (index == 0){
+            } else if (index == 0) {
                 list.setHead(null);
             } else {
                 int i = 0;
@@ -101,7 +101,7 @@ public class DLL implements DoublyLinkedList {
     }
 
     @Override
-    public DLL deleteByKey(DLL list, String value){
+    public DLL deleteByKey(DLL list, String value) {
         Node curr = list.head;
         Node prev, next;
         while (curr != null && !value.equals(curr.getValue())) {
