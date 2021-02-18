@@ -40,7 +40,7 @@ class DLLTest {
         traverse(list, 3);
     }
 
-    // TODO: uncomment tests after implementing methods
+
 
     @Test
     void deleteAtPosition() {

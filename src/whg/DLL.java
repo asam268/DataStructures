@@ -109,8 +109,7 @@ public class DLL implements DoublyLinkedList {
     public DLL deleteByKey(DLL list, String value) {
         Node node = list.getHead();
 
-        while (node != null) {  // FIXME:   this loop deletes every node matching the given value. It should only delete
-                                //          the first one
+        while (node != null) {
             if (node.getValue().equals(value)) {
                 Node prev = node.getPrev();
                 Node next = node.getNext();
@@ -190,11 +189,7 @@ public class DLL implements DoublyLinkedList {
             list.setHead(newNode);
         } else {
             Node curr = node.getNext();
-            /*
-            FIXME:  curr equals node.getNext(), therefore when the method cannot find Node 'next' (passed as a
-                    parameter), the while loop below throws a NullPointerException because 'node' equals the last node
-                    in the list, and 'curr' equals null
-             */
+
             while (node != null) {
                 if (curr != null && curr.equals(next)) {
                     newNode.setPrev(node);

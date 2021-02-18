@@ -1,6 +1,6 @@
 package whg;
 
-public interface DoublyLinkedList { // TODO: implement the DoublyLinkedList interface
+public interface DoublyLinkedList {
 
     interface Node {
         /**
@@ -20,8 +20,8 @@ public interface DoublyLinkedList { // TODO: implement the DoublyLinkedList inte
         void setPrev(DLL.Node prev);
         void setValue(String value);
     }
-    DLL append(DLL list, String value);             //  TODO: append a value to the end of the list
-    DLL deleteAtPosition(DLL list, int index);        //TODO: implement the commented methods last
+    DLL append(DLL list, String value);
+    DLL deleteAtPosition(DLL list, int index);
     DLL deleteByKey(DLL list, String value);
     DLL.Node getHead();
     DLL insertBefore(DLL list, DLL.Node next, String value);
@@ -39,6 +39,6 @@ public interface DoublyLinkedList { // TODO: implement the DoublyLinkedList inte
      * @param list  the linked list
      */
     void printList(DLL list);
-    DLL push(DLL list, String value);   // TODO: push a value to the beginning of the linked list
+    DLL push(DLL list, String value);
     void setHead(DLL.Node head);
 }

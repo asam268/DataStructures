@@ -42,7 +42,6 @@ class myQueueTest {
         }
         assertEquals("0", a.pull());
 
-        // TODO: it removes the item from the list when pulled
     }
 
     @Test
