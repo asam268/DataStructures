@@ -83,7 +83,7 @@ class MyListTest {
         // it's size increases after appending variables
         for (int i = 0; i < 10; i++) {
             a.append("a");
-            Assertions.assertEquals(i+1, a.size());
+            Assertions.assertEquals(i + 1, a.size());
         }
 
         // it's size decreases after removing variables

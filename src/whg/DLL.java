@@ -86,8 +86,7 @@ public class DLL implements DoublyLinkedList {
                 if (next == null && prev == null) {
                     list.setHead(null);
                     break;
-                }
-                else if (next == null) {
+                } else if (next == null) {
                     prev.setNext(null);
                     break;
                 } else if (prev == null) {
@@ -116,8 +115,7 @@ public class DLL implements DoublyLinkedList {
                 if (next == null && prev == null) {
                     list.setHead(null);
                     break;
-                }
-                else if (next == null) {
+                } else if (next == null) {
                     prev.setNext(null);
                     break;
                 } else if (prev == null) {

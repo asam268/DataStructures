@@ -63,7 +63,7 @@ class MyLinkedListTest {
 
         // it can delete an item from the end of a linked list
         a = a.insert(a, "e");
-            a = a.deleteAtPosition(a, 2);
+        a = a.deleteAtPosition(a, 2);
         node = a.getHead();
         assertEquals("b", node.getValue());
         node = node.getNext();
