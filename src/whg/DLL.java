@@ -75,7 +75,34 @@ public class DLL implements DoublyLinkedList {
 
     @Override
     public DLL deleteAtPosition(DLL list, int index) {
-        return null;
+        Node node = list.getHead();
+        int count = -1;
+
+        while (node != null) {
+            count += 1;
+            if (count == index) {
+                Node prev = node.getPrev();
+                Node next = node.getNext();
+                if (next == null && prev == null) {
+                    list.setHead(null);
+                    break;
+                }
+                else if (next == null) {
+                    prev.setNext(null);
+                    break;
+                } else if (prev == null) {
+                    next.setPrev(null);
+                    list.setHead(next);
+                    break;
+                } else {
+                    prev.setNext(next);
+                    next.setPrev(prev);
+                    break;
+                }
+            }
+            node = node.getNext();
+        }
+        return list;
     }
 
     @Override
@@ -88,15 +115,19 @@ public class DLL implements DoublyLinkedList {
                 Node next = node.getNext();
                 if (next == null && prev == null) {
                     list.setHead(null);
+                    break;
                 }
                 else if (next == null) {
                     prev.setNext(null);
+                    break;
                 } else if (prev == null) {
                     next.setPrev(null);
                     list.setHead(next);
+                    break;
                 } else {
                     prev.setNext(next);
                     next.setPrev(prev);
+                    break;
                 }
             }
             node = node.getNext();
@@ -159,7 +190,7 @@ public class DLL implements DoublyLinkedList {
         } else {
             Node curr = node.getNext();
             while (node != null) {
-                if (curr.equals(next)) {
+                if (curr != null && curr.equals(next)) {
                     newNode.setPrev(node);
                     newNode.setNext(curr);
 
@@ -168,7 +199,7 @@ public class DLL implements DoublyLinkedList {
                     break;
                 }
                 node = node.getNext();
-                curr = curr.getNext();
+                curr = (curr != null) ? curr.getNext() : null;
             }
         }
         return list;
