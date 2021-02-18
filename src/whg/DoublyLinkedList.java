@@ -21,11 +21,11 @@ public interface DoublyLinkedList { // TODO: implement the DoublyLinkedList inte
         void setValue(String value);
     }
     DLL append(DLL list, String value);             //  TODO: append a value to the end of the list
-//    DLL deleteAtPosition(DLL list, int index);        TODO: implement the commented methods last
-//    DLL deleteByKey(DLL list, String value);
+    DLL deleteAtPosition(DLL list, int index);        //TODO: implement the commented methods last
+    DLL deleteByKey(DLL list, String value);
     DLL.Node getHead();
-//    DLL insertBefore(DLL list, DLL.Node next, String value);
-//    DLL insertAfter(DLL list, DLL.Node prev, String value);
+    DLL insertBefore(DLL list, DLL.Node next, String value);
+    DLL insertAfter(DLL list, DLL.Node prev, String value);
 
     /**
      * Prints every value in the linked list forward and backward order.

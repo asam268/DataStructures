@@ -74,6 +74,39 @@ public class DLL implements DoublyLinkedList {
     }
 
     @Override
+    public DLL deleteAtPosition(DLL list, int index) {
+        return null;
+    }
+
+    @Override
+    public DLL deleteByKey(DLL list, String value) {
+        Node node = list.getHead();
+
+        while (node != null) {
+            if (node.getValue().equals(value)) {
+                Node prev = node.getPrev();
+                Node next = node.getNext();
+                if (next == null && prev == null) {
+                    list.setHead(null);
+                }
+                else if (next == null) {
+                    prev.setNext(null);
+                } else if (prev == null) {
+                    next.setPrev(null);
+                    list.setHead(next);
+                } else {
+                    prev.setNext(next);
+                    next.setPrev(prev);
+                }
+            }
+            node = node.getNext();
+        }
+
+
+        return list;
+    }
+
+    @Override
     public void printList(DLL list) {
         Node node = list.getHead();
 
@@ -113,6 +146,62 @@ public class DLL implements DoublyLinkedList {
     }
 
     @Override
+    public DLL insertBefore(DLL list, Node next, String value) {
+        Node newNode = new Node(value);
+        Node node = list.getHead();
+
+        if (list.getHead() == null) {
+            list.setHead(null);
+        } else if (node.equals(next)) {
+            newNode.setNext(node);
+            node.setPrev(newNode);
+            list.setHead(newNode);
+        } else {
+            Node curr = node.getNext();
+            while (node != null) {
+                if (curr.equals(next)) {
+                    newNode.setPrev(node);
+                    newNode.setNext(curr);
+
+                    curr.setPrev(newNode);
+                    node.setNext(newNode);
+                    break;
+                }
+                node = node.getNext();
+                curr = curr.getNext();
+            }
+        }
+        return list;
+
+    }
+
+    @Override
+    public DLL insertAfter(DLL list, Node prev, String value) {
+        Node newNode = new Node(value);
+        Node node = list.getHead();
+
+        if (list.getHead() == null) {
+            list.setHead(null);
+        } else {
+            Node curr = node.getNext();
+            while (node != null) {
+                if (node.equals(prev)) {
+                    newNode.setPrev(node);
+                    newNode.setNext(curr);
+                    if (curr != null) {
+                        curr.setPrev(newNode);
+                    }
+                    node.setNext(newNode);
+                    break;
+                }
+                node = node.getNext();
+                curr = curr.getNext();
+            }
+        }
+        return list;
+    }
+
+    @Override
     public void setHead(Node head) {
         this.head = head;
     }
@@ -121,5 +210,6 @@ public class DLL implements DoublyLinkedList {
     public Node getHead() {
         return this.head;
     }
+
 
 }
