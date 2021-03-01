@@ -26,7 +26,7 @@ requests are received are retained by time-of-request.</p>Common Uses are:<ol>
 </ol>
 
 <h4><u>Singly/Doubly linked list:</u></h4>
-<p>Linked list offer a lot of the same functionalities as dynamic arrays,
+<p>Linked list offers a lot of the same functionality as dynamic arrays,
 however they are implemented by connected nodes instead of primitive arrays. 
 This inherent quality makes them perfect for retention of entries that are related contiguously,
 such as navigating the "back" and "forward" buttons on your browser.</p>
