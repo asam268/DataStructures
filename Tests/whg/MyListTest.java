@@ -1,7 +1,6 @@
 package whg;
 
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyListTest {
@@ -96,7 +95,7 @@ class MyListTest {
         // it's size increases after appending variables
         for (int i = 0; i < 10; i++) {
             a.append("a");
-            assertEquals(i+1, a.size());
+            assertEquals(i + 1, a.size());
         }
 
         // it's size decreases after removing variables

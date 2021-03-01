@@ -33,7 +33,7 @@ class myQueueTest {
     @Test
     void pull() {
         //it returns 0 if queue is empty
-         assertNull(a.pull());
+        assertNull(a.pull());
 
         // can pull the last item in a queue of more than 1 entries
         for (int i = 0; i <= 100; i++) {
@@ -42,7 +42,6 @@ class myQueueTest {
         }
         assertEquals("0", a.pull());
 
-        // TODO: it removes the item from the list when pulled
     }
 
     @Test

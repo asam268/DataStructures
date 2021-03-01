@@ -34,4 +34,3 @@ Common Uses are:<ol>
 <li>Circular linked list</li>
 <li>Implementing Stacks b/c it maintains a "head"</li>
 </ol>
-

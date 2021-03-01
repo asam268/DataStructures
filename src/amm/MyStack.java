@@ -46,13 +46,12 @@ class MyStack {
      * Return false to mark an overflow condition
      *
      * @param value to be pushed to the top of the stack
-     * @return      boolean
+     * @return boolean
      */
     boolean push(String value) {
         if (top >= (MAX - 1)) {
             return false;
-        }
-        else {
+        } else {
             stack[++top] = value;
             return true;
         }

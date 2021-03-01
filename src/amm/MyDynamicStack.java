@@ -2,7 +2,7 @@ package amm;
 
 /**
  * @author Asa Marshall
- *
+ * <p>
  * amm.MyDynamicStack is a resizable stack of Strings
  */
 class MyDynamicStack {
@@ -51,7 +51,7 @@ class MyDynamicStack {
     /**
      * Increases the size of the stack and adds a String to the top of the stack
      *
-     * @param value     to be pushed to the top of the stack
+     * @param value to be pushed to the top of the stack
      */
     void push(String value) {
         String[] temp = new String[top + 2];

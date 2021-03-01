@@ -14,6 +14,7 @@ class DLLTest {
     private DLL list;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+
     @BeforeEach
     void setUp() {
         list = new DLL();
@@ -255,10 +256,10 @@ class DLLTest {
      * This method traverses a linked list and makes assertions on the expected values of a properly formatted list.
      * The nodes are expected to have values ranging from 0..size
      *
-     * @param list  doubly linked list
-     * @param size  expected size of the linked list
+     * @param list doubly linked list
+     * @param size expected size of the linked list
      */
-    void traverse (DLL list, int size) {
+    void traverse(DLL list, int size) {
         DLL.Node node = list.getHead();
         int i = 0;
         while (i < size) {
@@ -270,7 +271,7 @@ class DLLTest {
                     assertNull(node.getNext());
                 node = node.getNext();
                 i++;
-            } else if (i == size - 1){ // last node
+            } else if (i == size - 1) { // last node
                 assertEquals("" + i, node.getValue());
                 assertNull(node.getNext());
                 node = node.getPrev();
