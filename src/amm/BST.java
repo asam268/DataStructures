@@ -1,8 +1,8 @@
 package amm;
 
-public class BST {
+public class BST implements BinarySearchTree {
 
-    static class Node {
+    static class Node implements BinarySearchTree.Node {
         private int value;
         private Node left, right;
 
@@ -11,26 +11,32 @@ public class BST {
             left = right = null;
         }
 
+        @Override
         public int getValue() {
             return value;
         }
 
+        @Override
         public void setValue(int value) {
             this.value = value;
         }
 
+        @Override
         public Node getLeft() {
             return left;
         }
 
+        @Override
         public void setLeft(Node left) {
             this.left = left;
         }
 
+        @Override
         public Node getRight() {
             return right;
         }
 
+        @Override
         public void setRight(Node right) {
             this.right = right;
         }
@@ -42,7 +48,13 @@ public class BST {
         root = null;
     }
 
-    void insert(int value) {
+    @Override
+    public Node getRoot() {
+        return root;
+    }
+
+    @Override
+    public void insert(int value) {
         root = insertRec(root, value);
     }
 
@@ -60,7 +72,8 @@ public class BST {
         return root;
     }
 
-    void print() {
+    @Override
+    public void print() {
         printRec(root);
     }
 
@@ -72,7 +85,7 @@ public class BST {
         }
     }
 
-    Node search(Node root, int value) {
+    public Node search(Node root, int value) {
         if (root == null || root.getValue() == value)
             return root;
 
